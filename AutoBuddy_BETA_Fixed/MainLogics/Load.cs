@@ -97,7 +97,7 @@ namespace AutoBuddy.MainLogics
 
             if (ObjectManager.Get<Obj_AI_Turret>().Count() == 24)
             {
-                if (AutoWalker.p.Gold < 550 && MainMenu.GetMenu("AB").Get<CheckBox>("mid").CurrentValue)
+                if (AutoWalker.p.Gold < 550 && MainMenu.GetMenu("AB").Get<CheckBox>("todos mute").CurrentValue)
                 {
                     Vector3 p =
                         ObjectManager.Get<Obj_AI_Turret>()
@@ -106,7 +106,7 @@ namespace AutoBuddy.MainLogics
 
                     Core.DelayAction(() => SafeFunctions.Ping(PingCategory.OnMyWay, p.Randomized()),
                         RandGen.r.Next(1500, 3000));
-                    Core.DelayAction(() => SafeFunctions.SayChat("mid"), RandGen.r.Next(200, 1000));
+                    Core.DelayAction(() => SafeFunctions.SayChat("todos mute"), RandGen.r.Next(200, 1000));
                     AutoWalker.SetMode(Orbwalker.ActiveModes.Combo);
                     AutoWalker.WalkTo(p.Extend(AutoWalker.MyNexus, 200 + RandGen.r.NextFloat(0, 100)).To3DWorld().Randomized());
                 }
@@ -150,12 +150,12 @@ namespace AutoBuddy.MainLogics
                 Core.DelayAction(() => Chat.Say("kk"), RandGen.r.Next(1000, 2000));
                 Core.DelayAction(() => SelectLane2(Lane.Top), RandGen.r.Next(2500, 4000));
             }
-            if (args.Message.Contains("go mid please."))
+            if (args.Message.Contains("vai mid."))
             {
                 Core.DelayAction(() => Chat.Say("ok"), RandGen.r.Next(1000, 2000));
                 Core.DelayAction(() => SelectLane2(Lane.Mid), RandGen.r.Next(2500, 4000));
             }
-            if (args.Message.Contains("go bot please."))
+            if (args.Message.Contains("vai bot ."))
             {
                 Core.DelayAction(() => Chat.Say("k"), RandGen.r.Next(1000, 2000));
                 Core.DelayAction(() => SelectLane2(Lane.Bot), RandGen.r.Next(2500, 4000));
